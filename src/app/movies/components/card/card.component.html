@@ -1,6 +1,7 @@
 <div class="text-center card mb-2 bg-dark">
 
-  <shared-lazy-image [url]="movie.posterPath" [alt]="movie.title"></shared-lazy-image>
+  <shared-lazy-image [url]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+    [alt]="movie.title"></shared-lazy-image>
 
 
   <div class="card-body text-white">

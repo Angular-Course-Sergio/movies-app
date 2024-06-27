@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Movie, SearchResponse } from '../interfaces/movies.interface';
 
@@ -51,15 +51,17 @@ export class MoviesService {
     if (tag.length === 0) return;
     this.organizeHistory(tag);
 
-    const params = new HttpParams()
-      .set('api_key', this.apiKey)
-      .set('language', 'es-MX')
-      .set('query', tag);
-
     this.http
-      .get<SearchResponse>(`${this.url}/search/movie`, { params })
+      .get<SearchResponse>(
+        `https://api.themoviedb.org/3/search/movie?query=${tag}`,
+        {
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+          },
+        }
+      )
       .subscribe((resp) => {
-        this.movieList = resp.data;
+        this.movieList = resp.results;
       });
   }
 }

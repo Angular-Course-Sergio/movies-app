@@ -1,22 +1,22 @@
 export interface Movie {
   adult: boolean;
-  backdropPath: string;
-  genreIds: string[];
+  backdrop_path: string;
+  genre_ids: string[];
   id: number;
-  originalLanguage: string;
-  originalTitle: string;
+  original_language: string;
+  original_title: string;
   overview: string;
   popularity: number;
-  posterPath: string;
-  releaseDate: Date;
+  poster_path: string;
+  release_date: Date;
   title: string;
   video: boolean;
-  voteAverage: number;
-  voteCount: number;
+  vote_average: number;
+  vote_count: number;
 }
 
 export interface SearchResponse {
-  data: Movie[];
+  results: Movie[];
   meta: Meta;
   pagination: Pagination;
 }

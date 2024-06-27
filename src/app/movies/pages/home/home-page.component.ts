@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+
 import { Movie } from '../../interfaces/movies.interface';
+import { MoviesService } from '../../services/movies-service.service';
 
 @Component({
   selector: 'movies-home-page',
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
-  constructor() {}
+  constructor(private moviesService: MoviesService) {}
 
   get movies(): Movie[] {
-    //servicio
-    return [];
+    return this.moviesService.movieList;
   }
 }
