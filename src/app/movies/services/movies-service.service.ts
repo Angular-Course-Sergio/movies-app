@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Movie, SearchResponse } from '../interfaces/movies.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -52,16 +53,23 @@ export class MoviesService {
     this.organizeHistory(tag);
 
     this.http
-      .get<SearchResponse>(
-        `https://api.themoviedb.org/3/search/movie?query=${tag}`,
-        {
-          headers: {
-            Authorization: `Bearer ${this.apiKey}`,
-          },
-        }
-      )
+      .get<SearchResponse>(`${this.url}/search/movie?query=${tag}`, {
+        headers: {
+          Authorization: `Bearer ${this.apiKey}`,
+        },
+      })
       .subscribe((resp) => {
         this.movieList = resp.results;
       });
+  }
+
+  getMovieDetails(movieId: number): Observable<Movie> {
+    const url = `${this.url}/movie/${movieId}`;
+
+    return this.http.get<Movie>(url, {
+      headers: {
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+    });
   }
 }

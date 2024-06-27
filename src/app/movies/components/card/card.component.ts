@@ -11,4 +11,8 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     if (!this.movie) throw new Error('Movie property is required');
   }
+
+  movieId(id: number): void {
+    console.log(id);
+  }
 }
