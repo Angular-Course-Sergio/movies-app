@@ -5,14 +5,10 @@ import { Movie } from '../../interfaces/movies.interface';
   selector: 'movies-card',
   templateUrl: './card.component.html',
 })
-export class CardComponent implements OnInit {
+export class MovieCardComponent implements OnInit {
   @Input() public movie!: Movie;
 
   ngOnInit(): void {
     if (!this.movie) throw new Error('Movie property is required');
-  }
-
-  movieId(id: number): void {
-    console.log(id);
   }
 }

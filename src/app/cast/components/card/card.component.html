@@ -1,0 +1,10 @@
+<div class="text-center card mb-2 bg-dark">
+
+  <shared-lazy-image [url]="'https://image.tmdb.org/t/p/w500' + actor.profile_path"
+    [alt]="actor.name"></shared-lazy-image>
+
+  <div class="card-body text-white">
+    <h5 class="card-title">{{actor.name}}</h5>
+    <p class="card-text">{{actor.character || 'Unknow'}}</p>
+  </div>
+</div>

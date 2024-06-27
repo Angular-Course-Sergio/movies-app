@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MoviesModule } from './movies/movies.module';
+import { CastModule } from './cast/cast.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     MoviesModule,
+    CastModule,
     SharedModule,
     HttpClientModule,
     AppRoutingModule,

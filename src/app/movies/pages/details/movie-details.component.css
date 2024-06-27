@@ -1,0 +1,13 @@
+.movie-details {
+  padding-left: 20px;
+}
+
+.overview,
+.release-date {
+  font-size: 30px;
+}
+
+.cast-row {
+  width: 100vw;
+  background-color: blue;
+}

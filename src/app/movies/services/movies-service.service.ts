@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 import { Movie, SearchResponse } from '../interfaces/movies.interface';
-import { Observable } from 'rxjs';
+import { CastResponse } from '../../cast/interfaces/cast.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -67,6 +69,16 @@ export class MoviesService {
     const url = `${this.url}/movie/${movieId}`;
 
     return this.http.get<Movie>(url, {
+      headers: {
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+    });
+  }
+
+  getCast(movieId: number): Observable<CastResponse> {
+    const url = `${this.url}/movie/${movieId}/credits`;
+
+    return this.http.get<CastResponse>(url, {
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
       },

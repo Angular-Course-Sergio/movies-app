@@ -5,6 +5,6 @@ import { Movie } from '../../interfaces/movies.interface';
   selector: 'movies-card-list',
   templateUrl: './card-list.component.html',
 })
-export class CardListComponet {
+export class MovieCardListComponet {
   @Input() public movies: Movie[] = [];
 }
