@@ -14,3 +14,21 @@ export interface Movie {
   voteAverage: number;
   voteCount: number;
 }
+
+export interface SearchResponse {
+  data: Movie[];
+  meta: Meta;
+  pagination: Pagination;
+}
+
+export interface Meta {
+  status: number;
+  msg: string;
+  response_id: string;
+}
+
+export interface Pagination {
+  total_count: number;
+  count: number;
+  offset: number;
+}
