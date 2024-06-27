@@ -1,5 +1,8 @@
 <div class="text-center card mb-2 bg-dark">
 
+  <shared-lazy-image [url]="movie.posterPath" [alt]="movie.title"></shared-lazy-image>
+
+
   <div class="card-body text-white">
     <p class="card-text">{{movie.title || 'No title'}}</p>
   </div>
